@@ -49,14 +49,6 @@ resource "aws_route_table" "sample_rtb" {
   }
 }
 
-#NAT用のルートテーブルの作成
-resource "aws_route_table" "nat_rtb" {
-  vpc_id = aws_vpc.sample_vpc.id
-  route {
-    cidr_block  = "0.0.0.0/0"
-    instance_id = aws_instance.sample_NAT_server.id
-  }
-}
 
 # パブリックのサブネットにルートテーブルを紐づけ
 
